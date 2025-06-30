@@ -82,25 +82,27 @@ public class Oficina {
             System.out.println("4. Registrar Despesa");
             System.out.println("5. Receber Compra");
             System.out.println("6. Gerar Relatórios");
-            System.out.println("7. Gerenciar Colaboradores");
-            System.out.println("8. Gerenciar Produtos");
-            System.out.println("9. Executar Testes (Q15-Q18)");
-            System.out.println("10. Sair");
+            System.out.println("7. Gerar Balanço Mensal");
+            System.out.println("8. Gerenciar Colaboradores");
+            System.out.println("9. Gerenciar Produtos");
+            System.out.println("10. Executar Testes (Q15-Q18)");
+            System.out.println("11. Sair");
             System.out.print("Opção: "); opc = readInt();
             switch (opc) {
-                case 1: gerenciarClientes();      break;
-                case 2: gerenciarVeiculos();      break;
-                case 3: gerenciarAgendamentos();  break;
-                case 4: registrarDespesa();       break;
-                case 5: receberCompra();          break;
-                case 6: gerarRelatorios();        break;
-                case 7: gerenciarColaboradores(); break;
-                case 8: gerenciarProdutos();      break;
-                case 9: executarTestes();         break;
-                case 10: break;
+                case 1:  gerenciarClientes();      break;
+                case 2:  gerenciarVeiculos();      break;
+                case 3:  gerenciarAgendamentos();  break;
+                case 4:  registrarDespesa();       break;
+                case 5:  receberCompra();          break;
+                case 6:  gerarRelatorios();        break;
+                case 7:  gerarBalanco();           break;
+                case 8:  gerenciarColaboradores(); break;
+                case 9:  gerenciarProdutos();      break;
+                case 10: executarTestes();         break;
+                case 11: break;
                 default: System.out.println("Opção inválida.");
             }
-        } while (opc != 10);
+        } while (opc != 11);
     }
 
     private static void menuColaborador() {
@@ -433,6 +435,19 @@ public class Oficina {
             System.out.print("Ano: "); int y = readInt();
             sistema.emitirRelatorioMensal(m,y).gerar();
         }
+        System.out.println();
+    }
+
+    private static void gerarBalanco() {
+        if (!(usuarioLogado instanceof Administrador)) {
+            System.out.println("Acesso negado: somente administradores podem gerar balanço.\n");
+            return;
+        }
+        System.out.print("Mês: ");
+        int mes = readInt();
+        System.out.print("Ano: ");
+        int ano = readInt();
+        sistema.gerarBalancoMes(mes, ano).gerar();
         System.out.println();
     }
 
