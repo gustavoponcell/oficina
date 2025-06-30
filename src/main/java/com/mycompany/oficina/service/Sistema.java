@@ -1,6 +1,8 @@
 package com.mycompany.oficina.service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -31,6 +33,7 @@ import com.mycompany.oficina.persistence.RelatorioRepository;
 import com.mycompany.oficina.persistence.UsuarioRepository;
 import com.mycompany.oficina.persistence.VeiculoRepository;
 import com.mycompany.oficina.persistence.EstoqueRepository;
+import com.mycompany.oficina.util.DateUtil;
 
 /**
  * Serviço principal da Oficina, centralizando operações de domínio.
@@ -132,9 +135,72 @@ public class Sistema {
     public List<Elevador> getElevadores()              { return elevadorRepo.findAll(); }
 
     // ===== Relatórios =====
-    public Relatorio emitirRelatorioDia(Date dia)      { /* existente */ return null; }
-    public RelatorioVendas emitirRelatorioMensal(int mes, int ano) { /* existente */ return null; }
-    public BalancoMensal gerarBalancoMes(int mes, int ano)        { /* existente */ return null; }
+    public Relatorio emitirRelatorioDia(Date dia) {
+        LocalDate target = DateUtil.toLocalDate(dia);
+        List<OrdemServico> ordensDia = ordemRepo.findAll().stream()
+            .filter(os -> os.getDataAbertura().toLocalDate().equals(target))
+            .collect(Collectors.toList());
+
+        int nextId = relatorioRepo.findAll().size() + 1;
+        RelatorioVendas rel = new RelatorioVendas(nextId, dia, dia, ordensDia);
+        relatorioRepo.add(rel);
+        return rel;
+    }
+
+    public RelatorioVendas emitirRelatorioMensal(int mes, int ano) {
+        LocalDate inicio = LocalDate.of(ano, mes, 1);
+        LocalDate fim = inicio.with(TemporalAdjusters.lastDayOfMonth());
+        List<OrdemServico> ordensMes = ordemRepo.findAll().stream()
+            .filter(os -> {
+                LocalDate d = os.getDataAbertura().toLocalDate();
+                return d.getYear() == ano && d.getMonthValue() == mes;
+            })
+            .collect(Collectors.toList());
+
+        int nextId = relatorioRepo.findAll().size() + 1;
+        RelatorioVendas rel = new RelatorioVendas(
+            nextId,
+            DateUtil.toDate(inicio),
+            DateUtil.toDate(fim),
+            ordensMes
+        );
+        relatorioRepo.add(rel);
+        return rel;
+    }
+
+    public BalancoMensal gerarBalancoMes(int mes, int ano) {
+        LocalDate inicio = LocalDate.of(ano, mes, 1);
+        LocalDate fim = inicio.with(TemporalAdjusters.lastDayOfMonth());
+
+        double receitas = faturaRepo.findAll().stream()
+            .filter(f -> {
+                LocalDate d = DateUtil.toLocalDate(f.getData());
+                return d.getYear() == ano && d.getMonthValue() == mes;
+            })
+            .mapToDouble(Fatura::getValorTotal)
+            .sum();
+
+        double despesas = despesaRepo.findAll().stream()
+            .filter(d -> {
+                LocalDate ld = DateUtil.toLocalDate(d.getData());
+                return ld.getYear() == ano && ld.getMonthValue() == mes;
+            })
+            .mapToDouble(Despesa::getValor)
+            .sum();
+
+        int nextId = relatorioRepo.findAll().size() + 1;
+        BalancoMensal balanco = new BalancoMensal(
+            nextId,
+            DateUtil.toDate(inicio),
+            DateUtil.toDate(fim),
+            mes,
+            ano,
+            receitas,
+            despesas
+        );
+        relatorioRepo.add(balanco);
+        return balanco;
+    }
 
     // ===== Estoque =====
     public Estoque getEstoque()                        { return estoqueRepo.getEstoque(); }
