@@ -238,6 +238,7 @@ public class Sistema {
     c.setNome("Cliente Teste " + id);
     c.setCpf(String.format("000.111.222-%02d", id));
     addCliente(c);
+    System.out.println("Cliente criado: " + c.getNome());
 
     // 2) Criar e cadastrar veículo
     Veiculo v = new Veiculo();
@@ -246,6 +247,7 @@ public class Sistema {
     v.setModelo("Modelo-" + id);
     v.setCliente(c);
     addVeiculo(v);
+    System.out.println("Veículo cadastrado: " + v.getPlaca());
 
     // 3) Registrar agendamento
     Agendamento ag = new Agendamento();
@@ -260,6 +262,7 @@ public class Sistema {
     os.setId(id);
     os.setAgendamento(ag);
     registrarOrdemServico(os);
+    System.out.println("Ordem emitida: " + os.getId());
 
     // 5) Garantir estoque e remover com retry
     Produto teste = new Produto(1, "Peça Genérica", 10.0);
@@ -278,5 +281,6 @@ public class Sistema {
     // Primeiro calcula valor e depois gera nota
     os.calcularValor();
     os.gerarNotaFiscal();
+    System.out.println("Nota gerada para cliente " + c.getNome());
     }
 }
