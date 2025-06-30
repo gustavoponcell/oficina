@@ -17,6 +17,7 @@ import com.mycompany.oficina.service.Sistema;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Classe de interface de console para a Oficina.
@@ -440,6 +441,11 @@ public class Oficina {
      */
     private static void executarTestes() {
         List<Cliente> clientes = sistema.getClientes();
+        if (clientes.isEmpty()) {
+            // Garante ao menos um cliente para os testes
+            sistema.simularFluxoCliente(1);
+            clientes = sistema.getClientes();
+        }
 
         // === Q15: Iterator vs For-Each ===
         System.out.println("\n=== Q15: Iterator vs For-Each ===");
@@ -448,6 +454,7 @@ public class Oficina {
             Cliente c = it.next();
             System.out.println("Iterator processando cliente: " + c.getNome());
         }
+        // O loop for-each utiliza internamente um Iterator
         for (Cliente c : clientes) {
             System.out.println("Foreach processando cliente: " + c.getNome());
         }
@@ -472,9 +479,10 @@ public class Oficina {
             Comparator.comparingInt(Cliente::getId)
         );
         long timeIt = System.nanoTime() - startIt;
+        long timeItUs = TimeUnit.NANOSECONDS.toMicros(timeIt);
         System.out.println("Iterator encontrou: "
                            + (encontradoIt != null ? encontradoIt.getNome() : "não achou")
-                           + " em " + timeIt + " ns");
+                           + " em " + timeItUs + " µs");
 
         Collections.sort(clientes, Comparator.comparingInt(Cliente::getId));
         long startBs = System.nanoTime();
@@ -484,10 +492,11 @@ public class Oficina {
             Comparator.comparingInt(Cliente::getId)
         );
         long timeBs = System.nanoTime() - startBs;
+        long timeBsUs = TimeUnit.NANOSECONDS.toMicros(timeBs);
         System.out.println((idx >= 0
             ? "BinarySearch encontrou: " + clientes.get(idx).getNome()
             : "BinarySearch não encontrou")
-            + " em " + timeBs + " ns");
+            + " em " + timeBsUs + " µs");
         // Nota: binarySearch exige lista ordenada
 
         // === Q18: Fluxo Completo (10 Clientes) ===
