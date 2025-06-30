@@ -41,6 +41,7 @@ public class JSONUtil {
     private static final Gson gson = new GsonBuilder()
         .registerTypeAdapterFactory(usuarioTypeAdapter)
         .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
+        .enableComplexMapKeySerialization()
         .setPrettyPrinting()
         .create();
 
