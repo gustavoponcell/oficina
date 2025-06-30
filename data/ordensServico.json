@@ -1,0 +1,1525 @@
+[
+  {
+    "id": 1,
+    "agendamento": {
+      "id": 1,
+      "dataHora": "2025-06-29T20:23:03.0123107",
+      "cliente": {
+        "id": 1,
+        "nome": "Cliente Teste 1",
+        "cpf": "000.111.222-01"
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T20:23:03.0153085"
+  },
+  {
+    "id": 1,
+    "agendamento": {
+      "id": 1,
+      "dataHora": "2025-06-29T20:57:00.7892056",
+      "cliente": {
+        "id": 1,
+        "nome": "Cliente Teste 1",
+        "cpf": "000.111.222-01"
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T20:57:00.7922054"
+  },
+  {
+    "id": 1,
+    "agendamento": {
+      "id": 1,
+      "dataHora": "2025-06-29T21:18:45.6654512",
+      "cliente": {
+        "id": 1,
+        "nome": "Cliente Teste 1",
+        "cpf": "000.111.222-01"
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T21:18:45.6674531"
+  },
+  {
+    "id": 1,
+    "agendamento": {
+      "id": 1,
+      "dataHora": "2025-06-29T21:20:21.2884452",
+      "cliente": {
+        "id": 1,
+        "nome": "Cliente Teste 1",
+        "cpf": "000.111.222-01"
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T21:20:21.2924448"
+  },
+  {
+    "id": 1,
+    "agendamento": {
+      "id": 0,
+      "cliente": {
+        "id": 1,
+        "nome": "Cliente Teste 1",
+        "cpf": "000.111.222-01"
+      },
+      "veiculo": {
+        "id": 1,
+        "placa": "TESTE-1",
+        "modelo": "Modelo-1",
+        "cliente": {
+          "id": 1,
+          "nome": "Cliente Teste 1",
+          "cpf": "000.111.222-01"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "descricaoServico": "Serviço Teste 1",
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T21:25:46.2993763"
+  },
+  {
+    "id": 2,
+    "agendamento": {
+      "id": 0,
+      "cliente": {
+        "id": 2,
+        "nome": "Cliente Teste 2",
+        "cpf": "000.111.222-02"
+      },
+      "veiculo": {
+        "id": 2,
+        "placa": "TESTE-2",
+        "modelo": "Modelo-2",
+        "cliente": {
+          "id": 2,
+          "nome": "Cliente Teste 2",
+          "cpf": "000.111.222-02"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "descricaoServico": "Serviço Teste 2",
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T21:25:46.328374"
+  },
+  {
+    "id": 3,
+    "agendamento": {
+      "id": 0,
+      "cliente": {
+        "id": 3,
+        "nome": "Cliente Teste 3",
+        "cpf": "000.111.222-03"
+      },
+      "veiculo": {
+        "id": 3,
+        "placa": "TESTE-3",
+        "modelo": "Modelo-3",
+        "cliente": {
+          "id": 3,
+          "nome": "Cliente Teste 3",
+          "cpf": "000.111.222-03"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "descricaoServico": "Serviço Teste 3",
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T21:25:46.3403716"
+  },
+  {
+    "id": 4,
+    "agendamento": {
+      "id": 0,
+      "cliente": {
+        "id": 4,
+        "nome": "Cliente Teste 4",
+        "cpf": "000.111.222-04"
+      },
+      "veiculo": {
+        "id": 4,
+        "placa": "TESTE-4",
+        "modelo": "Modelo-4",
+        "cliente": {
+          "id": 4,
+          "nome": "Cliente Teste 4",
+          "cpf": "000.111.222-04"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "descricaoServico": "Serviço Teste 4",
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T21:25:46.3753708"
+  },
+  {
+    "id": 5,
+    "agendamento": {
+      "id": 0,
+      "cliente": {
+        "id": 5,
+        "nome": "Cliente Teste 5",
+        "cpf": "000.111.222-05"
+      },
+      "veiculo": {
+        "id": 5,
+        "placa": "TESTE-5",
+        "modelo": "Modelo-5",
+        "cliente": {
+          "id": 5,
+          "nome": "Cliente Teste 5",
+          "cpf": "000.111.222-05"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "descricaoServico": "Serviço Teste 5",
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T21:25:46.4213673"
+  },
+  {
+    "id": 6,
+    "agendamento": {
+      "id": 0,
+      "cliente": {
+        "id": 6,
+        "nome": "Cliente Teste 6",
+        "cpf": "000.111.222-06"
+      },
+      "veiculo": {
+        "id": 6,
+        "placa": "TESTE-6",
+        "modelo": "Modelo-6",
+        "cliente": {
+          "id": 6,
+          "nome": "Cliente Teste 6",
+          "cpf": "000.111.222-06"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "descricaoServico": "Serviço Teste 6",
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T21:25:46.4433707"
+  },
+  {
+    "id": 7,
+    "agendamento": {
+      "id": 0,
+      "cliente": {
+        "id": 7,
+        "nome": "Cliente Teste 7",
+        "cpf": "000.111.222-07"
+      },
+      "veiculo": {
+        "id": 7,
+        "placa": "TESTE-7",
+        "modelo": "Modelo-7",
+        "cliente": {
+          "id": 7,
+          "nome": "Cliente Teste 7",
+          "cpf": "000.111.222-07"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "descricaoServico": "Serviço Teste 7",
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T21:25:46.4533723"
+  },
+  {
+    "id": 8,
+    "agendamento": {
+      "id": 0,
+      "cliente": {
+        "id": 8,
+        "nome": "Cliente Teste 8",
+        "cpf": "000.111.222-08"
+      },
+      "veiculo": {
+        "id": 8,
+        "placa": "TESTE-8",
+        "modelo": "Modelo-8",
+        "cliente": {
+          "id": 8,
+          "nome": "Cliente Teste 8",
+          "cpf": "000.111.222-08"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "descricaoServico": "Serviço Teste 8",
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T21:25:46.4713705"
+  },
+  {
+    "id": 9,
+    "agendamento": {
+      "id": 0,
+      "cliente": {
+        "id": 9,
+        "nome": "Cliente Teste 9",
+        "cpf": "000.111.222-09"
+      },
+      "veiculo": {
+        "id": 9,
+        "placa": "TESTE-9",
+        "modelo": "Modelo-9",
+        "cliente": {
+          "id": 9,
+          "nome": "Cliente Teste 9",
+          "cpf": "000.111.222-09"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "descricaoServico": "Serviço Teste 9",
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T21:25:46.4823708"
+  },
+  {
+    "id": 10,
+    "agendamento": {
+      "id": 0,
+      "cliente": {
+        "id": 10,
+        "nome": "Cliente Teste 10",
+        "cpf": "000.111.222-10"
+      },
+      "veiculo": {
+        "id": 10,
+        "placa": "TESTE-10",
+        "modelo": "Modelo-10",
+        "cliente": {
+          "id": 10,
+          "nome": "Cliente Teste 10",
+          "cpf": "000.111.222-10"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "descricaoServico": "Serviço Teste 10",
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T21:25:46.4913693"
+  },
+  {
+    "id": 1,
+    "agendamento": {
+      "id": 1,
+      "dataHora": "2025-06-28T22:08:19.0072191",
+      "cliente": {
+        "id": 1,
+        "nome": "Cliente 1",
+        "telefone": "0000-0001",
+        "email": "cliente1@ex.com",
+        "cpf": "000.000.000-01",
+        "endereco": "Endereço 1"
+      },
+      "veiculo": {
+        "id": 1,
+        "placa": "ABC-1",
+        "modelo": "Modelo 1",
+        "cliente": {
+          "id": 1,
+          "nome": "Cliente 1",
+          "telefone": "0000-0001",
+          "email": "cliente1@ex.com",
+          "cpf": "000.000.000-01",
+          "endereco": "Endereço 1"
+        }
+      },
+      "descricaoProblema": "Problema teste 1",
+      "estadoInicial": "Estado inicial",
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T22:08:19.0122169"
+  },
+  {
+    "id": 1,
+    "agendamento": {
+      "id": 1,
+      "dataHora": "2025-06-28T22:11:45.5647226",
+      "cliente": {
+        "id": 1,
+        "nome": "Cliente 1",
+        "telefone": "0000-0001",
+        "email": "cliente1@ex.com",
+        "cpf": "000.000.000-01",
+        "endereco": "Endereço 1"
+      },
+      "veiculo": {
+        "id": 1,
+        "placa": "ABC-1",
+        "modelo": "Modelo 1",
+        "cliente": {
+          "id": 1,
+          "nome": "Cliente 1",
+          "telefone": "0000-0001",
+          "email": "cliente1@ex.com",
+          "cpf": "000.000.000-01",
+          "endereco": "Endereço 1"
+        }
+      },
+      "descricaoProblema": "Problema teste 1",
+      "estadoInicial": "Estado inicial",
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T22:11:45.5707197"
+  },
+  {
+    "id": 1,
+    "agendamento": {
+      "id": 1,
+      "dataHora": "2025-06-28T22:14:16.2009319",
+      "cliente": {
+        "id": 1,
+        "nome": "Cliente 1",
+        "telefone": "0000-0001",
+        "email": "cliente1@ex.com",
+        "cpf": "000.000.000-01",
+        "endereco": "Endereço 1"
+      },
+      "veiculo": {
+        "id": 1,
+        "placa": "ABC-1",
+        "modelo": "Modelo 1",
+        "cliente": {
+          "id": 1,
+          "nome": "Cliente 1",
+          "telefone": "0000-0001",
+          "email": "cliente1@ex.com",
+          "cpf": "000.000.000-01",
+          "endereco": "Endereço 1"
+        }
+      },
+      "descricaoProblema": "Problema teste 1",
+      "estadoInicial": "Estado inicial",
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T22:14:16.206931"
+  },
+  {
+    "id": 1,
+    "agendamento": {
+      "id": 1,
+      "dataHora": "2025-06-29T22:21:32.33089",
+      "cliente": {
+        "id": 1,
+        "nome": "Cliente Teste 1",
+        "cpf": "000.111.222-01"
+      },
+      "veiculo": {
+        "id": 1,
+        "placa": "TESTE-1",
+        "modelo": "Modelo-1",
+        "cliente": {
+          "id": 1,
+          "nome": "Cliente Teste 1",
+          "cpf": "000.111.222-01"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T22:21:32.3378849"
+  },
+  {
+    "id": 2,
+    "agendamento": {
+      "id": 2,
+      "dataHora": "2025-06-30T22:21:32.3788865",
+      "cliente": {
+        "id": 2,
+        "nome": "Cliente Teste 2",
+        "cpf": "000.111.222-02"
+      },
+      "veiculo": {
+        "id": 2,
+        "placa": "TESTE-2",
+        "modelo": "Modelo-2",
+        "cliente": {
+          "id": 2,
+          "nome": "Cliente Teste 2",
+          "cpf": "000.111.222-02"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T22:21:32.3828846"
+  },
+  {
+    "id": 3,
+    "agendamento": {
+      "id": 3,
+      "dataHora": "2025-07-01T22:21:32.3978864",
+      "cliente": {
+        "id": 3,
+        "nome": "Cliente Teste 3",
+        "cpf": "000.111.222-03"
+      },
+      "veiculo": {
+        "id": 3,
+        "placa": "TESTE-3",
+        "modelo": "Modelo-3",
+        "cliente": {
+          "id": 3,
+          "nome": "Cliente Teste 3",
+          "cpf": "000.111.222-03"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T22:21:32.4018837"
+  },
+  {
+    "id": 4,
+    "agendamento": {
+      "id": 4,
+      "dataHora": "2025-07-02T22:21:32.4178857",
+      "cliente": {
+        "id": 4,
+        "nome": "Cliente Teste 4",
+        "cpf": "000.111.222-04"
+      },
+      "veiculo": {
+        "id": 4,
+        "placa": "TESTE-4",
+        "modelo": "Modelo-4",
+        "cliente": {
+          "id": 4,
+          "nome": "Cliente Teste 4",
+          "cpf": "000.111.222-04"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T22:21:32.4258849"
+  },
+  {
+    "id": 5,
+    "agendamento": {
+      "id": 5,
+      "dataHora": "2025-07-03T22:21:32.4398865",
+      "cliente": {
+        "id": 5,
+        "nome": "Cliente Teste 5",
+        "cpf": "000.111.222-05"
+      },
+      "veiculo": {
+        "id": 5,
+        "placa": "TESTE-5",
+        "modelo": "Modelo-5",
+        "cliente": {
+          "id": 5,
+          "nome": "Cliente Teste 5",
+          "cpf": "000.111.222-05"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T22:21:32.4428865"
+  },
+  {
+    "id": 6,
+    "agendamento": {
+      "id": 6,
+      "dataHora": "2025-07-04T22:21:32.4578852",
+      "cliente": {
+        "id": 6,
+        "nome": "Cliente Teste 6",
+        "cpf": "000.111.222-06"
+      },
+      "veiculo": {
+        "id": 6,
+        "placa": "TESTE-6",
+        "modelo": "Modelo-6",
+        "cliente": {
+          "id": 6,
+          "nome": "Cliente Teste 6",
+          "cpf": "000.111.222-06"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T22:21:32.4608883"
+  },
+  {
+    "id": 7,
+    "agendamento": {
+      "id": 7,
+      "dataHora": "2025-07-05T22:21:32.4788973",
+      "cliente": {
+        "id": 7,
+        "nome": "Cliente Teste 7",
+        "cpf": "000.111.222-07"
+      },
+      "veiculo": {
+        "id": 7,
+        "placa": "TESTE-7",
+        "modelo": "Modelo-7",
+        "cliente": {
+          "id": 7,
+          "nome": "Cliente Teste 7",
+          "cpf": "000.111.222-07"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T22:21:32.4828893"
+  },
+  {
+    "id": 8,
+    "agendamento": {
+      "id": 8,
+      "dataHora": "2025-07-06T22:21:32.5018862",
+      "cliente": {
+        "id": 8,
+        "nome": "Cliente Teste 8",
+        "cpf": "000.111.222-08"
+      },
+      "veiculo": {
+        "id": 8,
+        "placa": "TESTE-8",
+        "modelo": "Modelo-8",
+        "cliente": {
+          "id": 8,
+          "nome": "Cliente Teste 8",
+          "cpf": "000.111.222-08"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T22:21:32.5048895"
+  },
+  {
+    "id": 9,
+    "agendamento": {
+      "id": 9,
+      "dataHora": "2025-07-07T22:21:32.5218837",
+      "cliente": {
+        "id": 9,
+        "nome": "Cliente Teste 9",
+        "cpf": "000.111.222-09"
+      },
+      "veiculo": {
+        "id": 9,
+        "placa": "TESTE-9",
+        "modelo": "Modelo-9",
+        "cliente": {
+          "id": 9,
+          "nome": "Cliente Teste 9",
+          "cpf": "000.111.222-09"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T22:21:32.5238856"
+  },
+  {
+    "id": 10,
+    "agendamento": {
+      "id": 10,
+      "dataHora": "2025-07-08T22:21:32.5408845",
+      "cliente": {
+        "id": 10,
+        "nome": "Cliente Teste 10",
+        "cpf": "000.111.222-10"
+      },
+      "veiculo": {
+        "id": 10,
+        "placa": "TESTE-10",
+        "modelo": "Modelo-10",
+        "cliente": {
+          "id": 10,
+          "nome": "Cliente Teste 10",
+          "cpf": "000.111.222-10"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-28T22:21:32.5438868"
+  },
+  {
+    "id": 1,
+    "agendamento": {
+      "id": 1,
+      "dataHora": "2025-06-30T23:39:03.7604448",
+      "cliente": {
+        "id": 1,
+        "nome": "Cliente Teste 1",
+        "cpf": "000.111.222-01"
+      },
+      "veiculo": {
+        "id": 1,
+        "placa": "TESTE-1",
+        "modelo": "Modelo-1",
+        "cliente": {
+          "id": 1,
+          "nome": "Cliente Teste 1",
+          "cpf": "000.111.222-01"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-29T23:39:03.7689685"
+  },
+  {
+    "id": 2,
+    "agendamento": {
+      "id": 2,
+      "dataHora": "2025-07-01T23:39:03.81719",
+      "cliente": {
+        "id": 2,
+        "nome": "Cliente Teste 2",
+        "cpf": "000.111.222-02"
+      },
+      "veiculo": {
+        "id": 2,
+        "placa": "TESTE-2",
+        "modelo": "Modelo-2",
+        "cliente": {
+          "id": 2,
+          "nome": "Cliente Teste 2",
+          "cpf": "000.111.222-02"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-29T23:39:03.8212096"
+  },
+  {
+    "id": 3,
+    "agendamento": {
+      "id": 3,
+      "dataHora": "2025-07-02T23:39:03.8458502",
+      "cliente": {
+        "id": 3,
+        "nome": "Cliente Teste 3",
+        "cpf": "000.111.222-03"
+      },
+      "veiculo": {
+        "id": 3,
+        "placa": "TESTE-3",
+        "modelo": "Modelo-3",
+        "cliente": {
+          "id": 3,
+          "nome": "Cliente Teste 3",
+          "cpf": "000.111.222-03"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-29T23:39:03.8532369"
+  },
+  {
+    "id": 4,
+    "agendamento": {
+      "id": 4,
+      "dataHora": "2025-07-03T23:39:03.8768453",
+      "cliente": {
+        "id": 4,
+        "nome": "Cliente Teste 4",
+        "cpf": "000.111.222-04"
+      },
+      "veiculo": {
+        "id": 4,
+        "placa": "TESTE-4",
+        "modelo": "Modelo-4",
+        "cliente": {
+          "id": 4,
+          "nome": "Cliente Teste 4",
+          "cpf": "000.111.222-04"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-29T23:39:03.8818757"
+  },
+  {
+    "id": 5,
+    "agendamento": {
+      "id": 5,
+      "dataHora": "2025-07-04T23:39:03.9142526",
+      "cliente": {
+        "id": 5,
+        "nome": "Cliente Teste 5",
+        "cpf": "000.111.222-05"
+      },
+      "veiculo": {
+        "id": 5,
+        "placa": "TESTE-5",
+        "modelo": "Modelo-5",
+        "cliente": {
+          "id": 5,
+          "nome": "Cliente Teste 5",
+          "cpf": "000.111.222-05"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-29T23:39:03.9177767"
+  },
+  {
+    "id": 6,
+    "agendamento": {
+      "id": 6,
+      "dataHora": "2025-07-05T23:39:03.9439029",
+      "cliente": {
+        "id": 6,
+        "nome": "Cliente Teste 6",
+        "cpf": "000.111.222-06"
+      },
+      "veiculo": {
+        "id": 6,
+        "placa": "TESTE-6",
+        "modelo": "Modelo-6",
+        "cliente": {
+          "id": 6,
+          "nome": "Cliente Teste 6",
+          "cpf": "000.111.222-06"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-29T23:39:03.9469092"
+  },
+  {
+    "id": 7,
+    "agendamento": {
+      "id": 7,
+      "dataHora": "2025-07-06T23:39:03.9670165",
+      "cliente": {
+        "id": 7,
+        "nome": "Cliente Teste 7",
+        "cpf": "000.111.222-07"
+      },
+      "veiculo": {
+        "id": 7,
+        "placa": "TESTE-7",
+        "modelo": "Modelo-7",
+        "cliente": {
+          "id": 7,
+          "nome": "Cliente Teste 7",
+          "cpf": "000.111.222-07"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-29T23:39:03.9700566"
+  },
+  {
+    "id": 8,
+    "agendamento": {
+      "id": 8,
+      "dataHora": "2025-07-07T23:39:03.9911243",
+      "cliente": {
+        "id": 8,
+        "nome": "Cliente Teste 8",
+        "cpf": "000.111.222-08"
+      },
+      "veiculo": {
+        "id": 8,
+        "placa": "TESTE-8",
+        "modelo": "Modelo-8",
+        "cliente": {
+          "id": 8,
+          "nome": "Cliente Teste 8",
+          "cpf": "000.111.222-08"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-29T23:39:03.9931273"
+  },
+  {
+    "id": 9,
+    "agendamento": {
+      "id": 9,
+      "dataHora": "2025-07-08T23:39:04.0136998",
+      "cliente": {
+        "id": 9,
+        "nome": "Cliente Teste 9",
+        "cpf": "000.111.222-09"
+      },
+      "veiculo": {
+        "id": 9,
+        "placa": "TESTE-9",
+        "modelo": "Modelo-9",
+        "cliente": {
+          "id": 9,
+          "nome": "Cliente Teste 9",
+          "cpf": "000.111.222-09"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-29T23:39:04.0167012"
+  },
+  {
+    "id": 10,
+    "agendamento": {
+      "id": 10,
+      "dataHora": "2025-07-09T23:39:04.0437284",
+      "cliente": {
+        "id": 10,
+        "nome": "Cliente Teste 10",
+        "cpf": "000.111.222-10"
+      },
+      "veiculo": {
+        "id": 10,
+        "placa": "TESTE-10",
+        "modelo": "Modelo-10",
+        "cliente": {
+          "id": 10,
+          "nome": "Cliente Teste 10",
+          "cpf": "000.111.222-10"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-29T23:39:04.0482569"
+  },
+  {
+    "id": 1,
+    "agendamento": {
+      "id": 1,
+      "dataHora": "2025-07-01T15:08:43.5270173",
+      "cliente": {
+        "id": 1,
+        "nome": "Cliente Teste 1",
+        "cpf": "000.111.222-01"
+      },
+      "veiculo": {
+        "id": 1,
+        "placa": "TESTE-1",
+        "modelo": "Modelo-1",
+        "cliente": {
+          "id": 1,
+          "nome": "Cliente Teste 1",
+          "cpf": "000.111.222-01"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:08:43.541019"
+  },
+  {
+    "id": 2,
+    "agendamento": {
+      "id": 2,
+      "dataHora": "2025-07-02T15:08:43.61102",
+      "cliente": {
+        "id": 2,
+        "nome": "Cliente Teste 2",
+        "cpf": "000.111.222-02"
+      },
+      "veiculo": {
+        "id": 2,
+        "placa": "TESTE-2",
+        "modelo": "Modelo-2",
+        "cliente": {
+          "id": 2,
+          "nome": "Cliente Teste 2",
+          "cpf": "000.111.222-02"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:08:43.6190248"
+  },
+  {
+    "id": 3,
+    "agendamento": {
+      "id": 3,
+      "dataHora": "2025-07-03T15:08:43.6570175",
+      "cliente": {
+        "id": 3,
+        "nome": "Cliente Teste 3",
+        "cpf": "000.111.222-03"
+      },
+      "veiculo": {
+        "id": 3,
+        "placa": "TESTE-3",
+        "modelo": "Modelo-3",
+        "cliente": {
+          "id": 3,
+          "nome": "Cliente Teste 3",
+          "cpf": "000.111.222-03"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:08:43.6610206"
+  },
+  {
+    "id": 4,
+    "agendamento": {
+      "id": 4,
+      "dataHora": "2025-07-04T15:08:43.6880198",
+      "cliente": {
+        "id": 4,
+        "nome": "Cliente Teste 4",
+        "cpf": "000.111.222-04"
+      },
+      "veiculo": {
+        "id": 4,
+        "placa": "TESTE-4",
+        "modelo": "Modelo-4",
+        "cliente": {
+          "id": 4,
+          "nome": "Cliente Teste 4",
+          "cpf": "000.111.222-04"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:08:43.693019"
+  },
+  {
+    "id": 5,
+    "agendamento": {
+      "id": 5,
+      "dataHora": "2025-07-05T15:08:43.7240196",
+      "cliente": {
+        "id": 5,
+        "nome": "Cliente Teste 5",
+        "cpf": "000.111.222-05"
+      },
+      "veiculo": {
+        "id": 5,
+        "placa": "TESTE-5",
+        "modelo": "Modelo-5",
+        "cliente": {
+          "id": 5,
+          "nome": "Cliente Teste 5",
+          "cpf": "000.111.222-05"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:08:43.7280191"
+  },
+  {
+    "id": 6,
+    "agendamento": {
+      "id": 6,
+      "dataHora": "2025-07-06T15:08:43.7580219",
+      "cliente": {
+        "id": 6,
+        "nome": "Cliente Teste 6",
+        "cpf": "000.111.222-06"
+      },
+      "veiculo": {
+        "id": 6,
+        "placa": "TESTE-6",
+        "modelo": "Modelo-6",
+        "cliente": {
+          "id": 6,
+          "nome": "Cliente Teste 6",
+          "cpf": "000.111.222-06"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:08:43.763022"
+  },
+  {
+    "id": 7,
+    "agendamento": {
+      "id": 7,
+      "dataHora": "2025-07-07T15:08:43.7900179",
+      "cliente": {
+        "id": 7,
+        "nome": "Cliente Teste 7",
+        "cpf": "000.111.222-07"
+      },
+      "veiculo": {
+        "id": 7,
+        "placa": "TESTE-7",
+        "modelo": "Modelo-7",
+        "cliente": {
+          "id": 7,
+          "nome": "Cliente Teste 7",
+          "cpf": "000.111.222-07"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:08:43.7940175"
+  },
+  {
+    "id": 8,
+    "agendamento": {
+      "id": 8,
+      "dataHora": "2025-07-08T15:08:43.8170184",
+      "cliente": {
+        "id": 8,
+        "nome": "Cliente Teste 8",
+        "cpf": "000.111.222-08"
+      },
+      "veiculo": {
+        "id": 8,
+        "placa": "TESTE-8",
+        "modelo": "Modelo-8",
+        "cliente": {
+          "id": 8,
+          "nome": "Cliente Teste 8",
+          "cpf": "000.111.222-08"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:08:43.8200212"
+  },
+  {
+    "id": 9,
+    "agendamento": {
+      "id": 9,
+      "dataHora": "2025-07-09T15:08:43.8450207",
+      "cliente": {
+        "id": 9,
+        "nome": "Cliente Teste 9",
+        "cpf": "000.111.222-09"
+      },
+      "veiculo": {
+        "id": 9,
+        "placa": "TESTE-9",
+        "modelo": "Modelo-9",
+        "cliente": {
+          "id": 9,
+          "nome": "Cliente Teste 9",
+          "cpf": "000.111.222-09"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:08:43.8480187"
+  },
+  {
+    "id": 10,
+    "agendamento": {
+      "id": 10,
+      "dataHora": "2025-07-10T15:08:43.8700191",
+      "cliente": {
+        "id": 10,
+        "nome": "Cliente Teste 10",
+        "cpf": "000.111.222-10"
+      },
+      "veiculo": {
+        "id": 10,
+        "placa": "TESTE-10",
+        "modelo": "Modelo-10",
+        "cliente": {
+          "id": 10,
+          "nome": "Cliente Teste 10",
+          "cpf": "000.111.222-10"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:08:43.8730214"
+  },
+  {
+    "id": 1,
+    "agendamento": {
+      "id": 1,
+      "dataHora": "2025-07-01T15:13:19.9845112",
+      "cliente": {
+        "id": 1,
+        "nome": "Cliente Teste 1",
+        "cpf": "000.111.222-01"
+      },
+      "veiculo": {
+        "id": 1,
+        "placa": "TESTE-1",
+        "modelo": "Modelo-1",
+        "cliente": {
+          "id": 1,
+          "nome": "Cliente Teste 1",
+          "cpf": "000.111.222-01"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:13:19.996511"
+  },
+  {
+    "id": 2,
+    "agendamento": {
+      "id": 2,
+      "dataHora": "2025-07-02T15:13:20.0555114",
+      "cliente": {
+        "id": 2,
+        "nome": "Cliente Teste 2",
+        "cpf": "000.111.222-02"
+      },
+      "veiculo": {
+        "id": 2,
+        "placa": "TESTE-2",
+        "modelo": "Modelo-2",
+        "cliente": {
+          "id": 2,
+          "nome": "Cliente Teste 2",
+          "cpf": "000.111.222-02"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:13:20.066512"
+  },
+  {
+    "id": 3,
+    "agendamento": {
+      "id": 3,
+      "dataHora": "2025-07-03T15:13:20.1005116",
+      "cliente": {
+        "id": 3,
+        "nome": "Cliente Teste 3",
+        "cpf": "000.111.222-03"
+      },
+      "veiculo": {
+        "id": 3,
+        "placa": "TESTE-3",
+        "modelo": "Modelo-3",
+        "cliente": {
+          "id": 3,
+          "nome": "Cliente Teste 3",
+          "cpf": "000.111.222-03"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:13:20.1055118"
+  },
+  {
+    "id": 4,
+    "agendamento": {
+      "id": 4,
+      "dataHora": "2025-07-04T15:13:20.1485211",
+      "cliente": {
+        "id": 4,
+        "nome": "Cliente Teste 4",
+        "cpf": "000.111.222-04"
+      },
+      "veiculo": {
+        "id": 4,
+        "placa": "TESTE-4",
+        "modelo": "Modelo-4",
+        "cliente": {
+          "id": 4,
+          "nome": "Cliente Teste 4",
+          "cpf": "000.111.222-04"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:13:20.1545152"
+  },
+  {
+    "id": 5,
+    "agendamento": {
+      "id": 5,
+      "dataHora": "2025-07-05T15:13:20.224516",
+      "cliente": {
+        "id": 5,
+        "nome": "Cliente Teste 5",
+        "cpf": "000.111.222-05"
+      },
+      "veiculo": {
+        "id": 5,
+        "placa": "TESTE-5",
+        "modelo": "Modelo-5",
+        "cliente": {
+          "id": 5,
+          "nome": "Cliente Teste 5",
+          "cpf": "000.111.222-05"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:13:20.2295128"
+  },
+  {
+    "id": 6,
+    "agendamento": {
+      "id": 6,
+      "dataHora": "2025-07-06T15:13:20.2685177",
+      "cliente": {
+        "id": 6,
+        "nome": "Cliente Teste 6",
+        "cpf": "000.111.222-06"
+      },
+      "veiculo": {
+        "id": 6,
+        "placa": "TESTE-6",
+        "modelo": "Modelo-6",
+        "cliente": {
+          "id": 6,
+          "nome": "Cliente Teste 6",
+          "cpf": "000.111.222-06"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:13:20.276512"
+  },
+  {
+    "id": 7,
+    "agendamento": {
+      "id": 7,
+      "dataHora": "2025-07-07T15:13:20.3125138",
+      "cliente": {
+        "id": 7,
+        "nome": "Cliente Teste 7",
+        "cpf": "000.111.222-07"
+      },
+      "veiculo": {
+        "id": 7,
+        "placa": "TESTE-7",
+        "modelo": "Modelo-7",
+        "cliente": {
+          "id": 7,
+          "nome": "Cliente Teste 7",
+          "cpf": "000.111.222-07"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:13:20.3175139"
+  },
+  {
+    "id": 8,
+    "agendamento": {
+      "id": 8,
+      "dataHora": "2025-07-08T15:13:20.3415097",
+      "cliente": {
+        "id": 8,
+        "nome": "Cliente Teste 8",
+        "cpf": "000.111.222-08"
+      },
+      "veiculo": {
+        "id": 8,
+        "placa": "TESTE-8",
+        "modelo": "Modelo-8",
+        "cliente": {
+          "id": 8,
+          "nome": "Cliente Teste 8",
+          "cpf": "000.111.222-08"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:13:20.3445126"
+  },
+  {
+    "id": 9,
+    "agendamento": {
+      "id": 9,
+      "dataHora": "2025-07-09T15:13:20.3635101",
+      "cliente": {
+        "id": 9,
+        "nome": "Cliente Teste 9",
+        "cpf": "000.111.222-09"
+      },
+      "veiculo": {
+        "id": 9,
+        "placa": "TESTE-9",
+        "modelo": "Modelo-9",
+        "cliente": {
+          "id": 9,
+          "nome": "Cliente Teste 9",
+          "cpf": "000.111.222-09"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:13:20.3665125"
+  },
+  {
+    "id": 10,
+    "agendamento": {
+      "id": 10,
+      "dataHora": "2025-07-10T15:13:20.3965143",
+      "cliente": {
+        "id": 10,
+        "nome": "Cliente Teste 10",
+        "cpf": "000.111.222-10"
+      },
+      "veiculo": {
+        "id": 10,
+        "placa": "TESTE-10",
+        "modelo": "Modelo-10",
+        "cliente": {
+          "id": 10,
+          "nome": "Cliente Teste 10",
+          "cpf": "000.111.222-10"
+        }
+      },
+      "valorRetido": 0.0,
+      "status": "RECEBIDO"
+    },
+    "itens": [],
+    "orcamento": 0.0,
+    "dataAbertura": "2025-06-30T15:13:20.4015118"
+  }
+]

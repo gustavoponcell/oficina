@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "tipo": "Padrão",
+    "disponivel": false
+  },
+  {
+    "id": 2,
+    "tipo": "Padrão",
+    "disponivel": true
+  },
+  {
+    "id": 3,
+    "tipo": "Padrão",
+    "disponivel": true
+  }
+]

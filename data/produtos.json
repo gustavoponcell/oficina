@@ -1,0 +1,52 @@
+[
+  {
+    "codigo": 1,
+    "nome": "Roda",
+    "preco": 100.0
+  },
+  {
+    "codigo": 2,
+    "nome": "alicate",
+    "preco": 10.0
+  },
+  {
+    "codigo": 3,
+    "nome": "Chave",
+    "preco": 8.0
+  },
+  {
+    "codigo": 4,
+    "nome": "vidro",
+    "preco": 100.0
+  },
+  {
+    "codigo": 5,
+    "nome": "Pinga",
+    "preco": 50.0
+  },
+  {
+    "codigo": 6,
+    "nome": "aro",
+    "preco": 80.0
+  },
+  {
+    "codigo": 7,
+    "nome": "Cafe",
+    "preco": 100.0
+  },
+  {
+    "codigo": 8,
+    "nome": "parafuso",
+    "preco": 90.0
+  },
+  {
+    "codigo": 9,
+    "nome": "pao",
+    "preco": 70.0
+  },
+  {
+    "codigo": 10,
+    "nome": "oleo",
+    "preco": 50.0
+  }
+]
