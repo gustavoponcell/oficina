@@ -1,5 +1,7 @@
 package com.mycompany.oficina.model;
 
+import com.mycompany.oficina.service.Sistema;
+
 /**
  * Representa um veículo pertencente a um cliente da oficina.
  * Conta instâncias criadas com contadores estáticos.
@@ -81,21 +83,24 @@ public class Veiculo {
      * Deve delegar ao serviço ou repositório adequado.
      */
     public void incluir() {
-        // TODO: implementar delegação ao SistemaService ou VeiculoRepository
+        Sistema sistema = new Sistema();
+        sistema.addVeiculo(this);
     }
 
     /**
      * Edita os dados deste veículo no sistema.
      */
     public void editar() {
-        // TODO: implementar delegação ao SistemaService ou VeiculoRepository
+        Sistema sistema = new Sistema();
+        sistema.updateVeiculo(this);
     }
 
     /**
      * Remove este veículo do sistema.
      */
     public void remover() {
-        // TODO: implementar delegação ao SistemaService ou VeiculoRepository
+        Sistema sistema = new Sistema();
+        sistema.removeVeiculo(this.id);
     }
 
     /**
