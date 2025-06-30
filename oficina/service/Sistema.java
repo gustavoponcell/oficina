@@ -1,6 +1,7 @@
 package com.mycompany.oficina.service;
 
 import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -18,6 +19,7 @@ import com.mycompany.oficina.model.RelatorioVendas;
 import com.mycompany.oficina.model.Usuario;
 import com.mycompany.oficina.model.Veiculo;
 import com.mycompany.oficina.model.Estoque;
+import com.mycompany.oficina.util.DateUtil;
 
 import com.mycompany.oficina.persistence.AgendamentoRepository;
 import com.mycompany.oficina.persistence.ClienteRepository;
@@ -132,9 +134,93 @@ public class Sistema {
     public List<Elevador> getElevadores()              { return elevadorRepo.findAll(); }
 
     // ===== Relatórios =====
-    public Relatorio emitirRelatorioDia(Date dia)      { /* existente */ return null; }
-    public RelatorioVendas emitirRelatorioMensal(int mes, int ano) { /* existente */ return null; }
-    public BalancoMensal gerarBalancoMes(int mes, int ano)        { /* existente */ return null; }
+    public Relatorio emitirRelatorioDia(Date dia) {
+        LocalDate target = DateUtil.toLocalDate(dia);
+
+        List<OrdemServico> ordensDia = ordemRepo.findAll().stream()
+                .filter(os -> os.getDataAbertura() != null &&
+                        os.getDataAbertura().toLocalDate().equals(target))
+                .collect(Collectors.toList());
+
+        List<Despesa> despesasDia = despesaRepo.findAll().stream()
+                .filter(d -> DateUtil.toLocalDate(d.getData()).equals(target))
+                .collect(Collectors.toList());
+
+        int nextId = relatorioRepo.findAll().size() + 1;
+        Relatorio relatorio = new Relatorio(nextId, dia, dia) {
+            @Override
+            public void gerar() {
+                System.out.println("Relatório do Dia " + dia);
+                System.out.println("Ordens de Serviço:" + ordensDia.size());
+                ordensDia.forEach(os ->
+                        System.out.println("  OS " + os.getId() + " - Valor: " + os.getOrcamento()));
+                System.out.println("Despesas:" + despesasDia.size());
+                despesasDia.forEach(d ->
+                        System.out.println("  Despesa " + d.getId() + " - Valor: " + d.getValor()));
+            }
+        };
+
+        relatorioRepo.add(relatorio);
+        return relatorio;
+    }
+
+    public RelatorioVendas emitirRelatorioMensal(int mes, int ano) {
+        LocalDate start = LocalDate.of(ano, mes, 1);
+        LocalDate end = start.withDayOfMonth(start.lengthOfMonth());
+
+        List<OrdemServico> ordensMes = ordemRepo.findAll().stream()
+                .filter(os -> {
+                    LocalDate data = os.getDataAbertura().toLocalDate();
+                    return data.getMonthValue() == mes && data.getYear() == ano;
+                })
+                .collect(Collectors.toList());
+
+        int nextId = relatorioRepo.findAll().size() + 1;
+        RelatorioVendas rel = new RelatorioVendas(
+                nextId,
+                DateUtil.toDate(start),
+                DateUtil.toDate(end),
+                ordensMes
+        );
+
+        relatorioRepo.add(rel);
+        return rel;
+    }
+
+    public BalancoMensal gerarBalancoMes(int mes, int ano) {
+        LocalDate start = LocalDate.of(ano, mes, 1);
+        LocalDate end = start.withDayOfMonth(start.lengthOfMonth());
+
+        double receitas = faturaRepo.findAll().stream()
+                .filter(f -> {
+                    LocalDate data = DateUtil.toLocalDate(f.getData());
+                    return data.getMonthValue() == mes && data.getYear() == ano;
+                })
+                .mapToDouble(Fatura::getValorTotal)
+                .sum();
+
+        double despesas = despesaRepo.findAll().stream()
+                .filter(d -> {
+                    LocalDate data = DateUtil.toLocalDate(d.getData());
+                    return data.getMonthValue() == mes && data.getYear() == ano;
+                })
+                .mapToDouble(Despesa::getValor)
+                .sum();
+
+        int nextId = relatorioRepo.findAll().size() + 1;
+        BalancoMensal balanco = new BalancoMensal(
+                nextId,
+                DateUtil.toDate(start),
+                DateUtil.toDate(end),
+                mes,
+                ano,
+                receitas,
+                despesas
+        );
+
+        relatorioRepo.add(balanco);
+        return balanco;
+    }
 
     // ===== Estoque =====
     public Estoque getEstoque()                        { return estoqueRepo.getEstoque(); }
