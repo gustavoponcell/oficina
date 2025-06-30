@@ -138,12 +138,47 @@ public class Oficina {
                     break;
                 case 2:
                     Cliente c = new Cliente();
-                    System.out.print("ID: "); c.setId(readInt());
-                    System.out.print("Nome: "); c.setNome(SC.nextLine());
-                    System.out.print("Telefone: "); c.setTelefone(SC.nextLine());
-                    System.out.print("Email: "); c.setEmail(SC.nextLine());
-                    System.out.print("CPF: "); c.setCpf(SC.nextLine());
-                    System.out.print("Endereço: "); c.setEndereco(SC.nextLine());
+                    System.out.print("ID: ");
+                    c.setId(readInt());
+                    System.out.print("Nome: ");
+                    c.setNome(SC.nextLine());
+
+                    String telefone;
+                    do {
+                        System.out.print("Telefone: ");
+                        telefone = SC.nextLine();
+                        if (!InputValidator.isValidPhone(telefone)) {
+                            System.out.println(
+                                    "Formato de telefone inválido. Tente novamente.");
+                        }
+                    } while (!InputValidator.isValidPhone(telefone));
+                    c.setTelefone(telefone);
+
+                    String email;
+                    do {
+                        System.out.print("Email: ");
+                        email = SC.nextLine();
+                        if (!InputValidator.isValidEmail(email)) {
+                            System.out.println(
+                                    "Email em formato incorreto. Digite novamente.");
+                        }
+                    } while (!InputValidator.isValidEmail(email));
+                    c.setEmail(email);
+
+                    String cpf;
+                    do {
+                        System.out.print("CPF: ");
+                        cpf = SC.nextLine();
+                        if (!InputValidator.isValidCpf(cpf)) {
+                            System.out.println(
+                                    "CPF inválido. Use o formato XXX.XXX.XXX-XX.");
+                        }
+                    } while (!InputValidator.isValidCpf(cpf));
+                    c.setCpf(cpf);
+
+                    System.out.print("Endereço: ");
+                    c.setEndereco(SC.nextLine());
+
                     sistema.addCliente(c);
                     System.out.println("Cliente adicionado.\n");
                     break;
