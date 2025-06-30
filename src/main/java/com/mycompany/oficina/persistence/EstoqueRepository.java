@@ -20,15 +20,15 @@ public class EstoqueRepository {
         List<Estoque> list;
         try {
             Type type = new TypeToken<List<Estoque>>(){}.getType();
-            list = JSONUtil.loadList(FILE_NAME, type);                // citeturn13file2
+            list = JSONUtil.loadList(FILE_NAME, type);
         } catch (JsonSyntaxException e) {
             // Fallback para estoque vazio se JSON estiver corrompido
-            list = new ArrayList<>();                               // citeturn11file0
+            list = new ArrayList<>();
         }
         if (list.isEmpty()) {
             // Inicializa estoque vazio e persiste
             estoque = new Estoque();                                 
-            JSONUtil.saveList(FILE_NAME, List.of(estoque));         // citeturn13file2
+            JSONUtil.saveList(FILE_NAME, List.of(estoque));
         } else {
             estoque = list.get(0);
         }
@@ -41,6 +41,6 @@ public class EstoqueRepository {
 
     /** Persiste o estoque atual no arquivo JSON. */
     public void save() {
-        JSONUtil.saveList(FILE_NAME, List.of(estoque));             // citeturn13file2
+        JSONUtil.saveList(FILE_NAME, List.of(estoque));
     }
 }
