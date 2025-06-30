@@ -448,7 +448,7 @@ public class Oficina {
         }
 
         // === Q15: Iterator vs For-Each ===
-        System.out.println("\n=== Q15: Iterator vs For-Each ===");
+        System.out.println("\n----- Q15: Iterator vs For-Each -----");
         Iterator<Cliente> it = clientes.iterator();
         while (it.hasNext()) {
             Cliente c = it.next();
@@ -461,8 +461,10 @@ public class Oficina {
         // O for-each é apenas uma sintaxe simplificada que utiliza um Iterator
         // por baixo dos panos para percorrer a coleção
 
+        System.out.println("-------------------------------------");
+
         // === Q16: Testes de Comparator ===
-        System.out.println("\n=== Q16: Testes de Comparator ===");
+        System.out.println("----- Q16: Testes de Comparator -----");
         Collections.sort(clientes, Cliente.comparatorPorCpf());
         System.out.println("Ordenação por CPF:");
         clientes.forEach(c -> System.out.println("  " + c.getCpf() + " - " + c.getNome()));
@@ -470,8 +472,10 @@ public class Oficina {
         System.out.println("Ordenação por Nome:");
         clientes.forEach(c -> System.out.println("  " + c.getNome() + " - " + c.getCpf()));
 
+        System.out.println("-------------------------------------");
+
         // === Q17: Iterator vs BinarySearch ===
-        System.out.println("\n=== Q17: Iterator vs BinarySearch ===");
+        System.out.println("----- Q17: Iterator vs BinarySearch -----");
         Cliente alvo = clientes.get(0);
 
         long startIt = System.nanoTime();
@@ -481,10 +485,11 @@ public class Oficina {
             Comparator.comparingInt(Cliente::getId)
         );
         long timeIt = System.nanoTime() - startIt;
-        long timeItUs = TimeUnit.NANOSECONDS.toMicros(timeIt);
-        System.out.println("Iterator encontrou: "
-                           + (encontradoIt != null ? encontradoIt.getNome() : "não achou")
-                           + " em " + timeItUs + " µs");
+        double timeItMs = timeIt / 1_000_000.0;
+        System.out.println(String.format(
+                "Iterator encontrou: %s em %.3f ms",
+                (encontradoIt != null ? encontradoIt.getNome() : "não achou"),
+                timeItMs));
 
         Collections.sort(clientes, Comparator.comparingInt(Cliente::getId));
         long startBs = System.nanoTime();
@@ -494,18 +499,23 @@ public class Oficina {
             Comparator.comparingInt(Cliente::getId)
         );
         long timeBs = System.nanoTime() - startBs;
-        long timeBsUs = TimeUnit.NANOSECONDS.toMicros(timeBs);
-        System.out.println((idx >= 0
-            ? "BinarySearch encontrou: " + clientes.get(idx).getNome()
-            : "BinarySearch não encontrou")
-            + " em " + timeBsUs + " µs");
+        double timeBsMs = timeBs / 1_000_000.0;
+        System.out.println(String.format(
+                (idx >= 0
+                        ? "BinarySearch encontrou: " + clientes.get(idx).getNome()
+                        : "BinarySearch não encontrou")
+                        + " em %.3f ms",
+                timeBsMs));
         // Nota: binarySearch exige lista ordenada
 
+        System.out.println("-------------------------------------");
+
         // === Q18: Fluxo Completo (10 Clientes) ===
-        System.out.println("\n=== Q18: Fluxo Completo (10 Clientes) ===");
+        System.out.println("----- Q18: Fluxo Completo (10 Clientes) -----");
         for (int i = 1; i <= 10; i++) {
             sistema.simularFluxoCliente(i);
         }
+        System.out.println("-------------------------------------");
         System.out.println("\n✅ Testes concluídos!");
     }
 
