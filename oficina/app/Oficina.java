@@ -14,6 +14,14 @@ import com.mycompany.oficina.model.RelatorioVendas;
 import com.mycompany.oficina.util.DateUtil;
 import com.mycompany.oficina.util.InputValidator;
 import com.mycompany.oficina.service.Sistema;
+import com.mycompany.oficina.model.Item;
+import com.mycompany.oficina.model.Servico;
+import com.mycompany.oficina.designpatterns.facade.OficinaFacade;
+import com.mycompany.oficina.designpatterns.mediator.AgendamentoService;
+import com.mycompany.oficina.designpatterns.mediator.FinanceiroService;
+import com.mycompany.oficina.designpatterns.mediator.EstoqueService;
+import com.mycompany.oficina.designpatterns.mediator.RelatorioService;
+import com.mycompany.oficina.designpatterns.mediator.OficinaMediator;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -85,7 +93,9 @@ public class Oficina {
             System.out.println("7. Gerenciar Colaboradores");
             System.out.println("8. Gerenciar Produtos");
             System.out.println("9. Executar Testes (Q15-Q18)");
-            System.out.println("10. Sair");
+            System.out.println("10. Demo OficinaFacade");
+            System.out.println("11. Demo Mediator");
+            System.out.println("12. Sair");
             System.out.print("Opção: "); opc = readInt();
             switch (opc) {
                 case 1: gerenciarClientes();      break;
@@ -97,10 +107,12 @@ public class Oficina {
                 case 7: gerenciarColaboradores(); break;
                 case 8: gerenciarProdutos();      break;
                 case 9: executarTestes();         break;
-                case 10: break;
+                case 10: demoFacade();            break;
+                case 11: demoMediator();          break;
+                case 12: break;
                 default: System.out.println("Opção inválida.");
             }
-        } while (opc != 10);
+        } while (opc != 12);
     }
 
     private static void menuColaborador() {
@@ -110,16 +122,20 @@ public class Oficina {
             System.out.println("1. Gerenciar Clientes");
             System.out.println("2. Gerenciar Veículos");
             System.out.println("3. Gerenciar Agendamentos");
-            System.out.println("4. Sair");
+            System.out.println("4. Demo OficinaFacade");
+            System.out.println("5. Demo Mediator");
+            System.out.println("6. Sair");
             System.out.print("Opção: "); opc = readInt();
             switch (opc) {
                 case 1: gerenciarClientes();     break;
                 case 2: gerenciarVeiculos();     break;
                 case 3: gerenciarAgendamentos(); break;
-                case 4: break;
+                case 4: demoFacade();            break;
+                case 5: demoMediator();          break;
+                case 6: break;
                 default: System.out.println("Opção inválida.");
             }
-        } while (opc != 4);
+        } while (opc != 6);
     }
 
     private static void gerenciarClientes() {
@@ -526,6 +542,74 @@ public class Oficina {
         }
         System.out.println("-------------------------------------");
         System.out.println("\n✅ Testes concluídos!");
+    }
+
+    /**
+     * Demonstra a utilização da OficinaFacade para criar uma ordem de serviço
+     * completa em uma única chamada.
+     */
+    private static void demoFacade() {
+        System.out.println("\n--- Demonstração OficinaFacade ---");
+
+        OficinaFacade facade = new OficinaFacade();
+
+        if (sistema.getClientes().isEmpty() || sistema.getVeiculos().isEmpty()) {
+            System.out.println("Cadastre ao menos um cliente e veículo antes.\n");
+            return;
+        }
+
+        Cliente  cli = sistema.getClientes().get(0);
+        Veiculo  vei = sistema.getVeiculos().get(0);
+
+        List<Item> itens = new ArrayList<>();
+        itens.add(new Servico(1, "Revisão rápida", 150.0));
+
+        OrdemServico os = facade.agendarServicoCompleto(
+            cli,
+            vei,
+            LocalDateTime.now().plusDays(1),
+            itens,
+            "Cheque geral",
+            "OK"
+        );
+
+        System.out.println("OS gerada: " + os + "\n");
+    }
+
+    /**
+     * Demonstra o padrão Mediator instanciando serviços e executando
+     * operações com comunicação desacoplada.
+     */
+    private static void demoMediator() {
+        System.out.println("\n--- Demonstração Mediator ---");
+
+        AgendamentoService ag = new AgendamentoService();
+        FinanceiroService  fin = new FinanceiroService();
+        EstoqueService     est = new EstoqueService();
+        RelatorioService   rel = new RelatorioService();
+
+        OficinaMediator mediator = new OficinaMediator(ag, fin, est, rel);
+
+        if (sistema.getClientes().isEmpty() || sistema.getVeiculos().isEmpty()) {
+            System.out.println("Cadastre ao menos um cliente e veículo antes.\n");
+            return;
+        }
+
+        Cliente cli = sistema.getClientes().get(0);
+        Veiculo vei = sistema.getVeiculos().get(0);
+
+        Agendamento novo = ag.criarAgendamento(
+            cli,
+            vei,
+            LocalDateTime.now().plusDays(2),
+            "Revisão completa",
+            "OK"
+        );
+
+        System.out.println("Agendamento via mediator: " + novo);
+
+        ag.concluirServico(novo.getId());
+        System.out.println("Serviço concluído e eventos disparados.\n");
     }
 
     private static int readInt() {
