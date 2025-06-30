@@ -1,5 +1,8 @@
 package com.mycompany.oficina.model;
 
+import com.mycompany.oficina.persistence.AgendamentoRepository;
+import com.mycompany.oficina.persistence.ClienteRepository;
+
 /**
  * Usuário operacional:
  * pode gerenciar clientes básicos e agendamentos.
@@ -16,26 +19,31 @@ public class Colaborador extends Usuario {
 
     /** Inclui um novo cliente no sistema. */
     public void incluirCliente(Cliente cliente) {
-        // TODO: delegar ao service/repository
+        ClienteRepository repo = new ClienteRepository();
+        repo.add(cliente);
     }
 
     /** Edita os dados de um cliente existente. */
     public void editarCliente(Cliente cliente) {
-        // TODO: delegar ao service/repository
+        ClienteRepository repo = new ClienteRepository();
+        repo.update(cliente);
     }
 
     /** Remove um cliente pelo seu ID. */
     public void removerCliente(int clienteId) {
-        // TODO: delegar ao service/repository
+        ClienteRepository repo = new ClienteRepository();
+        repo.remove(clienteId);
     }
 
     /** Registra um agendamento de serviço. */
     public void registrarAgendamento(Agendamento agendamento) {
-        // TODO: delegar ao service/repository
+        AgendamentoRepository repo = new AgendamentoRepository();
+        repo.add(agendamento);
     }
 
     /** Cancela um agendamento já existente. */
     public void cancelarAgendamento(Agendamento agendamento) {
-        // TODO: delegar ao service/repository
+        AgendamentoRepository repo = new AgendamentoRepository();
+        repo.remove(agendamento.getId());
     }
 }
