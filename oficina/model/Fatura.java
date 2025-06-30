@@ -1,6 +1,14 @@
 package com.mycompany.oficina.model;
 
 import java.util.Date;
+import java.util.List;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * Representa a fatura de cobrança ao cliente, gerada a partir de uma ordem de serviço.
@@ -78,7 +86,14 @@ public class Fatura {
      * Salva a fatura em um arquivo (JSON ou texto) - stub de implementação.
      */
     public void salvarExtrato() {
-        // TODO: implementar persistência (ex: JSONUtil.save) para armazenar a fatura
+        String fileName = "fatura-" + id + ".json";
+        Path path = Paths.get("data", fileName);
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(List.of(this), writer);
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar extrato: " + e.getMessage());
+        }
     }
 
     @Override
