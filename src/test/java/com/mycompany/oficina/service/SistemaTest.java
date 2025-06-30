@@ -53,9 +53,13 @@ public class SistemaTest {
         Fatura fat = new Fatura(1, new Date(), 200.0, null);
         sis.registrarFatura(fat);
 
-        BalancoMensal b = sis.gerarBalancoMes(DateUtil.toLocalDate(new Date()).getMonthValue(),
-                                               DateUtil.toLocalDate(new Date()).getYear());
+        int mesAtual = DateUtil.toLocalDate(new Date()).getMonthValue();
+        int anoAtual = DateUtil.toLocalDate(new Date()).getYear();
+
+        BalancoMensal b = sis.gerarBalancoMes(mesAtual, anoAtual);
         assertEquals(200.0, b.getReceitas(), 0.01);
         assertEquals(100.0, b.getDespesas(), 0.01);
+        assertEquals(mesAtual, b.getMes());
+        assertEquals(anoAtual, b.getAno());
     }
 }
