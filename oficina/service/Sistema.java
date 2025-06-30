@@ -20,6 +20,13 @@ import com.mycompany.oficina.model.Usuario;
 import com.mycompany.oficina.model.Veiculo;
 import com.mycompany.oficina.model.Estoque;
 
+import com.mycompany.oficina.designpatterns.mediator.AgendamentoService;
+import com.mycompany.oficina.designpatterns.mediator.EstoqueService;
+import com.mycompany.oficina.designpatterns.mediator.FinanceiroService;
+import com.mycompany.oficina.designpatterns.mediator.OficinaMediator;
+import com.mycompany.oficina.designpatterns.mediator.RelatorioService;
+import com.mycompany.oficina.designpatterns.mediator.TipoEvento;
+
 import com.mycompany.oficina.persistence.AgendamentoRepository;
 import com.mycompany.oficina.persistence.ClienteRepository;
 import com.mycompany.oficina.persistence.DespesaRepository;
@@ -51,6 +58,26 @@ public class Sistema {
     private final RelatorioRepository     relatorioRepo   = new RelatorioRepository();
     private final EstoqueRepository       estoqueRepo     = new EstoqueRepository();
     private final ProdutoRepository       produtoRepo     = new ProdutoRepository();
+
+    // serviços e mediador
+    private final AgendamentoService agendamentoService;
+    private final FinanceiroService  financeiroService;
+    private final EstoqueService     estoqueService;
+    private final RelatorioService   relatorioService;
+    private final OficinaMediator    mediator;
+
+    public Sistema() {
+        agendamentoService = new AgendamentoService();
+        financeiroService  = new FinanceiroService();
+        estoqueService     = new EstoqueService();
+        relatorioService   = new RelatorioService();
+        mediator = new OficinaMediator(
+            agendamentoService,
+            financeiroService,
+            estoqueService,
+            relatorioService
+        );
+    }
 
     // ===== Usuários =====
     public void addUsuario(Usuario u) {
@@ -103,7 +130,10 @@ public class Sistema {
     public void updateVeiculo(Veiculo v)                { veiculoRepo.update(v); }
 
     // ===== Agendamentos =====
-    public void registrarAgendamento(Agendamento ag)    { agendamentoRepo.add(ag); }
+    public void registrarAgendamento(Agendamento ag) {
+        agendamentoRepo.add(ag);
+        mediator.enviarEvento(TipoEvento.AGENDAMENTO_CRIADO, ag);
+    }
     public void updateAgendamento(Agendamento ag)       { agendamentoRepo.update(ag); }
     public List<Agendamento> getAgendamentos()         { return agendamentoRepo.findAll(); }
     public void cancelarAgendamento(int id)            { agendamentoRepo.remove(id); }
@@ -282,7 +312,7 @@ public class Sistema {
     Produto teste = new Produto(1, "Peça Genérica", 10.0);
     Map<Produto, Integer> compra = Collections.singletonMap(teste, 2);
     // Tenta adicionar e remover estoque, com retry em caso de falha
-    try {
+        try {
         receberCompra(compra);
         removerEstoque(teste, 2);
     } catch (IllegalArgumentException ex) {
@@ -290,6 +320,7 @@ public class Sistema {
         receberCompra(Collections.singletonMap(teste, 10));
         removerEstoque(teste, 2);
     }
+    mediator.enviarEvento(TipoEvento.SERVICO_CONCLUIDO, compra);
 
     // 6) Emissão de nota fiscal
     // Primeiro calcula valor e depois gera nota

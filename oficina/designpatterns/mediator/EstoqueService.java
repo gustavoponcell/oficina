@@ -2,6 +2,7 @@ package com.mycompany.oficina.designpatterns.mediator;
 
 import com.mycompany.oficina.model.Produto;
 import com.mycompany.oficina.model.Estoque;
+import com.mycompany.oficina.persistence.EstoqueRepository;
 
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,7 @@ import java.util.Map;
  */
 public class EstoqueService implements ColegaOficina {
     private OficinaMediator mediator;
-    private final Estoque repo = new Estoque();
+    private final EstoqueRepository repo = new EstoqueRepository();
 
     @Override
     public void setMediator(OficinaMediator mediator) {
@@ -46,21 +47,25 @@ public class EstoqueService implements ColegaOficina {
         // 'dados' deve ter detalhes do agendamento ou ordem de serviço
         // aqui assumimos que um Map<Produto, Integer> é passado como payload
         Map<Produto, Integer> itens = (Map<Produto, Integer>) dados;
+        Estoque estoque = repo.getEstoque();
         for (Map.Entry<Produto, Integer> entry : itens.entrySet()) {
             Produto produto = entry.getKey();
             int quantidade = entry.getValue();
-            repo.removerEstoque(produto, quantidade);
+            estoque.removerEstoque(produto, quantidade);
         }
+        repo.save();
     }
 
     @SuppressWarnings("unchecked")
     private void reservarPeca(Object dados) {
         // Similar ao ajuste, mas sem retirada imediata, apenas reserva lógica
         Map<Produto, Integer> itens = (Map<Produto, Integer>) dados;
+        Estoque estoque = repo.getEstoque();
         for (Map.Entry<Produto, Integer> entry : itens.entrySet()) {
             Produto produto = entry.getKey();
             int quantidade = entry.getValue();
-            repo.removerEstoque(produto, quantidade);  // ou marcar reserva
+            estoque.removerEstoque(produto, quantidade);  // ou marcar reserva
         }
+        repo.save();
     }
 }
