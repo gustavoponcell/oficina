@@ -19,6 +19,8 @@ import com.mycompany.oficina.model.RelatorioVendas;
 import com.mycompany.oficina.model.Usuario;
 import com.mycompany.oficina.model.Veiculo;
 import com.mycompany.oficina.model.Estoque;
+import com.mycompany.oficina.model.Item;
+import com.mycompany.oficina.designpatterns.facade.OficinaFacade;
 
 import com.mycompany.oficina.persistence.AgendamentoRepository;
 import com.mycompany.oficina.persistence.ClienteRepository;
@@ -264,19 +266,16 @@ public class Sistema {
     v.setCliente(c);
     addVeiculo(v);
 
-    // 3) Registrar agendamento
-    Agendamento ag = new Agendamento();
-    ag.setId(id);
-    ag.setDataHora(LocalDateTime.now().plusDays(id));
-    ag.setCliente(c);
-    ag.setVeiculo(v);
-    registrarAgendamento(ag);
-
-    // 4) Registrar ordem de serviço
-    OrdemServico os = new OrdemServico();
-    os.setId(id);
-    os.setAgendamento(ag);
-    registrarOrdemServico(os);
+    // 3) Agendar serviço completo via fachada
+    OficinaFacade facade = new OficinaFacade();
+    OrdemServico os = facade.agendarServicoCompleto(
+        c,
+        v,
+        LocalDateTime.now().plusDays(id),
+        new ArrayList<>(),
+        "Problema informado",
+        "Estado OK"
+    );
 
     // 5) Garantir estoque e remover com retry
     Produto teste = new Produto(1, "Peça Genérica", 10.0);
@@ -291,9 +290,6 @@ public class Sistema {
         removerEstoque(teste, 2);
     }
 
-    // 6) Emissão de nota fiscal
-    // Primeiro calcula valor e depois gera nota
-    os.calcularValor();
-    os.gerarNotaFiscal();
+    // 6) Nota fiscal já emitida pela fachada
     }
 }
