@@ -1,4 +1,3 @@
-// src/main/java/com/mycompany/oficina/designpatterns/mediator/TipoEvento.java
 package com.mycompany.oficina.designpatterns.mediator;
 
 /**

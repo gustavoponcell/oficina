@@ -458,6 +458,8 @@ public class Oficina {
         for (Cliente c : clientes) {
             System.out.println("Foreach processando cliente: " + c.getNome());
         }
+        // O for-each é apenas uma sintaxe simplificada que utiliza um Iterator
+        // por baixo dos panos para percorrer a coleção
 
         // === Q16: Testes de Comparator ===
         System.out.println("\n=== Q16: Testes de Comparator ===");

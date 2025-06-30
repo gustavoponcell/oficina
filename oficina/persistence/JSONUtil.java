@@ -7,6 +7,9 @@ import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 import com.mycompany.oficina.model.Usuario;
 import com.mycompany.oficina.model.Administrador;
 import com.mycompany.oficina.model.Colaborador;
+import com.mycompany.oficina.model.Relatorio;
+import com.mycompany.oficina.model.RelatorioVendas;
+import com.mycompany.oficina.model.BalancoMensal;
 import com.mycompany.oficina.util.LocalDateTimeAdapter;
 
 import java.io.IOException;
@@ -36,10 +39,19 @@ public class JSONUtil {
             .registerSubtype(Colaborador.class, "colaborador");
 
     /**
+     * Adapter para permitir a serialização polimórfica de Relatorio e suas subclasses.
+     */
+    private static final RuntimeTypeAdapterFactory<Relatorio> relatorioTypeAdapter =
+        RuntimeTypeAdapterFactory.of(Relatorio.class, "type")
+            .registerSubtype(RelatorioVendas.class, "relatorioVendas")
+            .registerSubtype(BalancoMensal.class, "balancoMensal");
+
+    /**
      * Instância Gson configurada para lidar com polimorfismo e LocalDateTime.
      */
     private static final Gson gson = new GsonBuilder()
         .registerTypeAdapterFactory(usuarioTypeAdapter)
+        .registerTypeAdapterFactory(relatorioTypeAdapter)
         .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
         .setPrettyPrinting()
         .create();

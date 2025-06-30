@@ -1,6 +1,8 @@
 package com.mycompany.oficina.model;
 
 import java.util.Date;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * Representa a fatura de cobrança ao cliente, gerada a partir de uma ordem de serviço.
@@ -75,10 +77,18 @@ public class Fatura {
     }
 
     /**
-     * Salva a fatura em um arquivo (JSON ou texto) - stub de implementação.
+     * Salva a fatura em um arquivo de texto simples para futura consulta.
      */
     public void salvarExtrato() {
-        // TODO: implementar persistência (ex: JSONUtil.save) para armazenar a fatura
+        String nomeArquivo = "fatura-" + id + ".txt";
+        try (FileWriter fw = new FileWriter(nomeArquivo)) {
+            fw.write("Fatura ID: " + id + System.lineSeparator());
+            fw.write("Data: " + data + System.lineSeparator());
+            fw.write("Cliente: " + (cliente != null ? cliente.getNome() : "Desconhecido") + System.lineSeparator());
+            fw.write("Valor Total: R$ " + valorTotal + System.lineSeparator());
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar extrato da fatura: " + e.getMessage());
+        }
     }
 
     @Override

@@ -1,4 +1,3 @@
-// Cliente.java
 package com.mycompany.oficina.model;
 
 import java.util.Comparator;

@@ -1,4 +1,3 @@
-// src/main/java/com/mycompany/oficina/designpatterns/mediator/EstoqueService.java
 package com.mycompany.oficina.designpatterns.mediator;
 
 import com.mycompany.oficina.model.Produto;

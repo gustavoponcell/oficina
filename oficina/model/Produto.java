@@ -1,4 +1,3 @@
-// src/main/java/com/mycompany/oficina/model/Produto.java
 package com.mycompany.oficina.model;
 
 import java.util.Objects;

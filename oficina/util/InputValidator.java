@@ -1,4 +1,3 @@
-// InputValidator.java
 package com.mycompany.oficina.util;
 
 import java.util.regex.Pattern;
