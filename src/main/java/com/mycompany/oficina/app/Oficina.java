@@ -472,9 +472,11 @@ public class Oficina {
             Comparator.comparingInt(Cliente::getId)
         );
         long timeIt = System.nanoTime() - startIt;
-        System.out.println("Iterator encontrou: "
-                           + (encontradoIt != null ? encontradoIt.getNome() : "não achou")
-                           + " em " + timeIt + " ns");
+        long timeItUs = timeIt / 1000;
+        System.out.println(
+            "Iterator levou " + timeItUs + " µs e "
+            + (encontradoIt != null ? "encontrou: " + encontradoIt.getNome() : "não achou")
+        );
 
         Collections.sort(clientes, Comparator.comparingInt(Cliente::getId));
         long startBs = System.nanoTime();
@@ -484,10 +486,13 @@ public class Oficina {
             Comparator.comparingInt(Cliente::getId)
         );
         long timeBs = System.nanoTime() - startBs;
-        System.out.println((idx >= 0
-            ? "BinarySearch encontrou: " + clientes.get(idx).getNome()
-            : "BinarySearch não encontrou")
-            + " em " + timeBs + " ns");
+        long timeBsUs = timeBs / 1000;
+        System.out.println(
+            "BinarySearch levou " + timeBsUs + " µs "
+            + (idx >= 0
+               ? "e encontrou: " + clientes.get(idx).getNome()
+               : "mas não encontrou")
+        );
         // Nota: binarySearch exige lista ordenada
 
         // === Q18: Fluxo Completo (10 Clientes) ===
