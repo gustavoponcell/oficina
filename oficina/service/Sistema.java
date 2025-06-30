@@ -166,51 +166,57 @@ public class Sistema {
      * Q18: simula todo o fluxo de 1 cliente (pode ser chamado 10x)
      */
     public void simularFluxoCliente(int id) {
-    // 1) Cadastro do cliente
-    Cliente c = new Cliente();
-    c.setId(id);
-    c.setNome("Cliente Teste " + id);
-    c.setCpf(String.format("000.111.222-%02d", id));
-    addCliente(c);
+        System.out.println("-> Iniciando fluxo do Cliente " + id);
 
-    // 2) Criar e cadastrar veículo
-    Veiculo v = new Veiculo();
-    v.setId(id);
-    v.setPlaca("TESTE-" + id);
-    v.setModelo("Modelo-" + id);
-    v.setCliente(c);
-    addVeiculo(v);
+        // 1) Cadastro do cliente
+        Cliente c = new Cliente();
+        c.setId(id);
+        c.setNome("Cliente Teste " + id);
+        c.setCpf(String.format("000.111.222-%02d", id));
+        addCliente(c);
+        System.out.println("   Cliente cadastrado: " + c.getNome());
 
-    // 3) Registrar agendamento
-    Agendamento ag = new Agendamento();
-    ag.setId(id);
-    ag.setDataHora(LocalDateTime.now().plusDays(id));
-    ag.setCliente(c);
-    ag.setVeiculo(v);
-    registrarAgendamento(ag);
+        // 2) Criar e cadastrar veículo
+        Veiculo v = new Veiculo();
+        v.setId(id);
+        v.setPlaca("TESTE-" + id);
+        v.setModelo("Modelo-" + id);
+        v.setCliente(c);
+        addVeiculo(v);
+        System.out.println("   Veículo cadastrado: " + v.getModelo() + " - " + v.getPlaca());
 
-    // 4) Registrar ordem de serviço
-    OrdemServico os = new OrdemServico();
-    os.setId(id);
-    os.setAgendamento(ag);
-    registrarOrdemServico(os);
+        // 3) Registrar agendamento
+        Agendamento ag = new Agendamento();
+        ag.setId(id);
+        ag.setDataHora(LocalDateTime.now().plusDays(id));
+        ag.setCliente(c);
+        ag.setVeiculo(v);
+        registrarAgendamento(ag);
+        System.out.println("   Agendamento registrado para " + ag.getDataHora());
 
-    // 5) Garantir estoque e remover com retry
-    Produto teste = new Produto(1, "Peça Genérica", 10.0);
-    Map<Produto, Integer> compra = Collections.singletonMap(teste, 2);
-    // Tenta adicionar e remover estoque, com retry em caso de falha
-    try {
-        receberCompra(compra);
-        removerEstoque(teste, 2);
-    } catch (IllegalArgumentException ex) {
-        // Se estoque insuficiente, adiciona quantidade extra e tenta novamente
-        receberCompra(Collections.singletonMap(teste, 10));
-        removerEstoque(teste, 2);
-    }
+        // 4) Registrar ordem de serviço
+        OrdemServico os = new OrdemServico();
+        os.setId(id);
+        os.setAgendamento(ag);
+        registrarOrdemServico(os);
+        System.out.println("   Ordem de serviço criada: OS " + os.getId());
 
-    // 6) Emissão de nota fiscal
-    // Primeiro calcula valor e depois gera nota
-    os.calcularValor();
-    os.gerarNotaFiscal();
+        // 5) Garantir estoque e remover com retry
+        Produto teste = new Produto(1, "Peça Genérica", 10.0);
+        Map<Produto, Integer> compra = Collections.singletonMap(teste, 2);
+        System.out.println("   Verificando estoque para peças ...");
+        try {
+            receberCompra(compra);
+            removerEstoque(teste, 2);
+        } catch (IllegalArgumentException ex) {
+            System.out.println("   Estoque insuficiente, realizando nova compra ...");
+            receberCompra(Collections.singletonMap(teste, 10));
+            removerEstoque(teste, 2);
+        }
+
+        // 6) Emissão de nota fiscal
+        os.calcularValor();
+        os.gerarNotaFiscal();
+        System.out.println("   Nota fiscal emitida para " + c.getNome());
     }
 }
