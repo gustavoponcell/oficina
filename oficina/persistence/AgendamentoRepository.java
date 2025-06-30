@@ -7,6 +7,7 @@ import com.mycompany.oficina.model.Agendamento;
 import java.io.EOFException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -96,7 +97,10 @@ public class AgendamentoRepository {
         JSONUtil.saveList(FILE_NAME, agendamentos);
     }
 
+    /**
+     * Retorna uma visualização imutável de todos os agendamentos.
+     */
     public List<Agendamento> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return Collections.unmodifiableList(agendamentos);
     }
 }

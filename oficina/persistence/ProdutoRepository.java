@@ -1,4 +1,3 @@
-// src/main/java/com/mycompany/oficina/persistence/ProdutoRepository.java
 package com.mycompany.oficina.persistence;
 
 import com.google.gson.reflect.TypeToken;

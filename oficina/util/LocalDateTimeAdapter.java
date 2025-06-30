@@ -1,4 +1,3 @@
-// LocalDateTimeAdapter.java
 package com.mycompany.oficina.util;
 
 import com.google.gson.JsonDeserializationContext;

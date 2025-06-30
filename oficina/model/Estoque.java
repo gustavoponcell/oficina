@@ -1,4 +1,3 @@
-// src/main/java/com/mycompany/oficina/model/Estoque.java
 package com.mycompany.oficina.model;
 
 import java.util.Map;

@@ -3,14 +3,14 @@ package com.mycompany.oficina.persistence;
 import com.google.gson.reflect.TypeToken;
 import com.mycompany.oficina.model.Relatorio;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 /**
  * Repositório para persistir relatórios (abstratos e concretos) em JSON.
- * Inicia sempre com lista vazia para evitar erros de desserialização de classes abstratas.
+ * Persiste relatórios em JSON, lidando com subclasses de Relatorio através do
+ * RuntimeTypeAdapter registrado em JSONUtil.
  */
 public class RelatorioRepository {
 
@@ -19,10 +19,10 @@ public class RelatorioRepository {
     private static final Type TYPE = new TypeToken<List<Relatorio>>() {}.getType();
 
     /**
-     * Construtor: inicializa lista vazia, sem tentar carregar relatórios antigos.
+     * Construtor: carrega relatórios do arquivo JSON (ou lista vazia).
      */
     public RelatorioRepository() {
-        this.relatorios = new ArrayList<>();
+        this.relatorios = JSONUtil.loadList(FILE_NAME, TYPE);
     }
 
     /**
