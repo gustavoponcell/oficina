@@ -1,6 +1,7 @@
 package com.mycompany.oficina.model;
 
 import java.util.Date;
+import com.mycompany.oficina.persistence.FaturaRepository;
 
 /**
  * Representa a fatura de cobrança ao cliente, gerada a partir de uma ordem de serviço.
@@ -78,7 +79,9 @@ public class Fatura {
      * Salva a fatura em um arquivo (JSON ou texto) - stub de implementação.
      */
     public void salvarExtrato() {
-        // TODO: implementar persistência (ex: JSONUtil.save) para armazenar a fatura
+        // Usa o repositório para acrescentar esta fatura ao arquivo JSON
+        FaturaRepository repo = new FaturaRepository();
+        repo.add(this);
     }
 
     @Override
