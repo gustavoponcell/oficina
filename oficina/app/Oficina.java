@@ -543,12 +543,11 @@ public class Oficina {
             alvo,
             Comparator.comparingInt(Cliente::getId)
         );
-        long timeIt = System.nanoTime() - startIt;
-        double timeItMs = timeIt / 1_000_000.0;
+        long durItUs = TimeUnit.NANOSECONDS.toMicros(System.nanoTime() - startIt);
         System.out.println(String.format(
-                "Iterator encontrou: %s em %.3f ms",
+                "Iterator encontrou: %s em %d µs",
                 (encontradoIt != null ? encontradoIt.getNome() : "não achou"),
-                timeItMs));
+                durItUs));
 
         Collections.sort(clientes, Comparator.comparingInt(Cliente::getId));
         long startBs = System.nanoTime();
@@ -557,14 +556,13 @@ public class Oficina {
             alvo,
             Comparator.comparingInt(Cliente::getId)
         );
-        long timeBs = System.nanoTime() - startBs;
-        double timeBsMs = timeBs / 1_000_000.0;
+        long durBsUs = TimeUnit.NANOSECONDS.toMicros(System.nanoTime() - startBs);
         System.out.println(String.format(
                 (idx >= 0
                         ? "BinarySearch encontrou: " + clientes.get(idx).getNome()
                         : "BinarySearch não encontrou")
-                        + " em %.3f ms",
-                timeBsMs));
+                        + " em %d µs",
+                durBsUs));
         // Nota: binarySearch exige lista ordenada
 
         System.out.println("-------------------------------------");
