@@ -1,6 +1,8 @@
 package com.mycompany.oficina.model;
 
 import java.util.Map;
+import com.mycompany.oficina.persistence.EstoqueRepository;
+import com.mycompany.oficina.model.Estoque;
 
 /**
  * Representa um fornecedor que fornece produtos ao estoque da oficina.
@@ -54,7 +56,10 @@ public class Fornecedor {
      * @param itens mapa de produtos e quantidades a serem entregues
      */
     public void entregarProdutos(Map<Produto, Integer> itens) {
-        // TODO: delegar atualização ao EstoqueService para refletir no estoque
+        EstoqueRepository repo = new EstoqueRepository();
+        Estoque estoque = repo.getEstoque();
+        estoque.receberCompra(itens);
+        repo.save();
     }
 
     @Override
