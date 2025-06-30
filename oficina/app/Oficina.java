@@ -478,6 +478,15 @@ public class Oficina {
         System.out.println("----- Q17: Iterator vs BinarySearch -----");
         Cliente alvo = clientes.get(0);
 
+        // Usa o método específico de busca para clientes
+        Cliente encontradoFind = sistema.findCliente(
+            clientes,
+            alvo,
+            Comparator.comparingInt(Cliente::getId)
+        );
+        System.out.println("findCliente retornou: "
+                           + (encontradoFind != null ? encontradoFind.getNome() : "não achou"));
+
         long startIt = System.nanoTime();
         Cliente encontradoIt = sistema.buscarComIterator(
             clientes,
