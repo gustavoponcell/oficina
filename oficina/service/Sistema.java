@@ -234,6 +234,18 @@ public class Sistema {
     }
 
     /**
+     * Encontra um cliente usando a busca genérica com Iterator.
+     *
+     * @param lista lista de clientes onde será feita a busca
+     * @param alvo  cliente a ser procurado
+     * @param cmp   comparador a ser utilizado
+     * @return o cliente encontrado ou {@code null} se não existir
+     */
+    public Cliente findCliente(List<Cliente> lista, Cliente alvo, Comparator<Cliente> cmp) {
+        return buscarComIterator(lista, alvo, cmp);
+    }
+
+    /**
      * Q18: simula todo o fluxo de 1 cliente (pode ser chamado 10x)
      */
     public void simularFluxoCliente(int id) {
