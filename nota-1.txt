@@ -1,0 +1,6 @@
+=== NOTA FISCAL ===
+ID: 1
+Cliente: Cliente Teste 1
+Veículo: TESTE-1
+Serviço: N/A
+Total: R$0.0
