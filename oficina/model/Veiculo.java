@@ -1,5 +1,7 @@
 package com.mycompany.oficina.model;
 
+import com.mycompany.oficina.persistence.VeiculoRepository;
+
 /**
  * Representa um veículo pertencente a um cliente da oficina.
  * Conta instâncias criadas com contadores estáticos.
@@ -81,21 +83,37 @@ public class Veiculo {
      * Deve delegar ao serviço ou repositório adequado.
      */
     public void incluir() {
-        // TODO: implementar delegação ao SistemaService ou VeiculoRepository
+        VeiculoRepository repo = new VeiculoRepository();
+        try {
+            repo.add(this);
+        } catch (RuntimeException e) {
+            throw new RuntimeException(
+                "Falha ao incluir veículo com ID " + this.id, e);
+        }
     }
 
     /**
      * Edita os dados deste veículo no sistema.
      */
     public void editar() {
-        // TODO: implementar delegação ao SistemaService ou VeiculoRepository
+        VeiculoRepository repo = new VeiculoRepository();
+        boolean ok = repo.update(this);
+        if (!ok) {
+            throw new RuntimeException(
+                "Falha ao editar veículo com ID " + this.id);
+        }
     }
 
     /**
      * Remove este veículo do sistema.
      */
     public void remover() {
-        // TODO: implementar delegação ao SistemaService ou VeiculoRepository
+        VeiculoRepository repo = new VeiculoRepository();
+        boolean ok = repo.remove(this.id);
+        if (!ok) {
+            throw new RuntimeException(
+                "Falha ao remover veículo com ID " + this.id);
+        }
     }
 
     /**

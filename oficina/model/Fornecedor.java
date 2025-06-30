@@ -1,6 +1,7 @@
 package com.mycompany.oficina.model;
 
 import java.util.Map;
+import com.mycompany.oficina.persistence.EstoqueRepository;
 
 /**
  * Representa um fornecedor que fornece produtos ao estoque da oficina.
@@ -54,7 +55,15 @@ public class Fornecedor {
      * @param itens mapa de produtos e quantidades a serem entregues
      */
     public void entregarProdutos(Map<Produto, Integer> itens) {
-        // TODO: delegar atualização ao EstoqueService para refletir no estoque
+        EstoqueRepository repo = new EstoqueRepository();
+        try {
+            Estoque estoque = repo.getEstoque();
+            estoque.receberCompra(itens);
+            repo.save();
+        } catch (RuntimeException e) {
+            throw new RuntimeException(
+                "Falha ao registrar entrega do fornecedor " + this.id, e);
+        }
     }
 
     @Override
