@@ -1,5 +1,7 @@
 package com.mycompany.oficina.model;
 
+import com.mycompany.oficina.service.Sistema;
+
 /**
  * Usuário com privilégios administrativos:
  * pode gerenciar clientes e despesas, e gerar balanços.
@@ -16,22 +18,26 @@ public class Administrador extends Usuario {
 
     /** Inclui um novo cliente no sistema. */
     public void incluirCliente(Cliente cliente) {
-        // TODO: delegar ao service/repository
+        Sistema sistema = new Sistema();
+        sistema.addCliente(cliente);
     }
 
     /** Edita os dados de um cliente existente. */
     public void editarCliente(Cliente cliente) {
-        // TODO: delegar ao service/repository
+        Sistema sistema = new Sistema();
+        sistema.updateCliente(cliente);
     }
 
     /** Remove um cliente pelo seu ID. */
     public void removerCliente(int clienteId) {
-        // TODO: delegar ao service/repository
+        Sistema sistema = new Sistema();
+        sistema.removeCliente(clienteId);
     }
 
     /** Registra uma nova despesa no sistema. */
     public void registrarDespesa(Despesa despesa) {
-        // TODO: delegar ao service/repository
+        Sistema sistema = new Sistema();
+        sistema.registrarDespesa(despesa);
     }
 
     /**
@@ -39,7 +45,7 @@ public class Administrador extends Usuario {
      * @return objeto BalancoMensal com receitas e despesas
      */
     public BalancoMensal gerarBalanco(int mes, int ano) {
-        // TODO: delegar ao service
-        return null;
+        Sistema sistema = new Sistema();
+        return sistema.gerarBalancoMes(mes, ano);
     }
 }

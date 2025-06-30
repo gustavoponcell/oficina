@@ -1,5 +1,7 @@
 package com.mycompany.oficina.model;
 
+import com.mycompany.oficina.service.Sistema;
+
 import java.util.Map;
 
 /**
@@ -54,7 +56,8 @@ public class Fornecedor {
      * @param itens mapa de produtos e quantidades a serem entregues
      */
     public void entregarProdutos(Map<Produto, Integer> itens) {
-        // TODO: delegar atualização ao EstoqueService para refletir no estoque
+        Sistema sistema = new Sistema();
+        sistema.receberCompra(itens);
     }
 
     @Override
